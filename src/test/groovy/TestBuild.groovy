@@ -9,7 +9,7 @@ class TestBuild {
     public void testOptions1() throws Exception {
          def connection = GradleConnector.newConnector().forProjectDirectory(new File('.')).connect();
          def buildLauncher = connection.newBuild().forTasks('tasks')
-         buildLauncher.setJvmArguments('-XX:MaxPermSize=128m')
+         buildLauncher.setJvmArguments('-Dtestprop=34')
          buildLauncher.run()
     }
 
