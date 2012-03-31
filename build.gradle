@@ -1,0 +1,17 @@
+apply {
+    plugin 'java'
+    plugin 'groovy'
+    plugin 'maven'
+    plugin 'signing'
+    plugin 'eclipse'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    testCompile 'junit:junit:4.+', 'org.apache.ant:ant:1.8.2'
+    testRuntime 'junit:junit:4.+', 'org.apache.ant:ant:1.8.2'
+    compile gradleApi(), fileTree(dir: 'libs', include: '*.jar')
+    runtime fileTree(dir: 'libs', include: '*.jar')
+    groovy localGroovy()
+}
